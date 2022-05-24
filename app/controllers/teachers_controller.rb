@@ -13,16 +13,22 @@ class TeachersController < ApplicationController
   def teacher_params
     params.require(:teacher).permit(:name, :location, :language, :availability, :price)
   end
-  
+
   def index
     @teachers = Teacher.all
   end
-  
+
   def show
   end
 
   def edit
   end
+
+  def destroy
+    @teacher.destroy
+    redirect_to teacher, notice: "Teacher was successfully destroyed."
+  end
+
 
   private
 
