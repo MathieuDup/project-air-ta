@@ -4,8 +4,11 @@ class TeachersController < ApplicationController
   end
   
   before_action :set_teacher
+
   def show
-    # @teacher = Teacher.find(params[:id])
+  end
+
+  def edit
   end
 
   private
