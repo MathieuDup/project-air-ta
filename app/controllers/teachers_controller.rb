@@ -7,9 +7,16 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     @teacher.save
-    
+  end
+  
+  def index
+    @teachers = Teacher.all
+  end
+  
   def show
-    # @teacher = Teacher.find(params[:id])
+  end
+
+  def edit
   end
 
   private
