@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @user = User.last #TO REMOVE
+    @user = User.first #TO REMOVE
     @teacher = Teacher.new(teacher_params)
     @teacher.user = @user
     if @teacher.save
