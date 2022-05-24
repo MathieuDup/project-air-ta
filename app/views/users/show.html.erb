@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row mt-5">
+    <% @teachers.each do |teacher| %>
+      <div class="col-4">
+      <%# need to replace url with cloudinary link for teacher picture on line 6 %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('REPLACE WITH CLOUDINARY LINK')">
+          <%= teacher.name %>
+          <%= link_to "Edit", edit_teacher(teacher) %>
+          <%= link_to "Delete", teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
