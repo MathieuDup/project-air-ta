@@ -25,6 +25,12 @@ class TeachersController < ApplicationController
   def edit
   end
 
+  def destroy
+    @teacher.destroy
+    redirect_to teacher, notice: "Teacher was successfully destroyed."
+  end
+
+
   private
 
   def set_teacher
