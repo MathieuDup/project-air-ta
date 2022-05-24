@@ -9,7 +9,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
 
     if @teacher.save
-      redirect_to teacher_path(@teacher)
+      redirect_to user_path(@teacher.user_id)
     else
       render :new
     end

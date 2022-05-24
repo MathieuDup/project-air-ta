@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row mt-5">
+  <%= link_to "Add a new teacher", new_teacher_path %>
     <% @teachers.each do |teacher| %>
       <div class="col-4">
       <%# need to replace url with cloudinary link for teacher picture on line 6 %>
