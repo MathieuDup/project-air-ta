@@ -6,10 +6,11 @@ class TeachersController < ApplicationController
   end
 
   def create
+    @user = User.last #TO REMOVE
     @teacher = Teacher.new(teacher_params)
-
+    @teacher.user = @user
     if @teacher.save
-      redirect_to user_path(@teacher.user_id)
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -25,11 +26,18 @@ class TeachersController < ApplicationController
   def edit
   end
 
-  def destroy
-    @teacher.destroy
-    redirect_to teacher, notice: "Teacher was successfully destroyed."
+  def update
+    if @teacher.update(teacher_params)
+      redirect_to @teacher.user, notice: 'Teacher was successfully updated.'
+    else
+      render :edit
+    end
   end
 
+  def destroy
+    @teacher.destroy
+    redirect_to user_path(@teacher.user), notice: "Teacher was successfully destroyed."
+  end
 
   private
 
