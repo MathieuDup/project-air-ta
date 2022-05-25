@@ -8,6 +8,9 @@
 
 p "Creating users"
 
+User.destroy_all
+Teacher.destroy_all
+
 User.create(username: "Marceau", email: "marceau@lewagon.com", password: "secret")
 User.create(username: "Emy", email: "emy@gmail.com", password: "secret")
 
