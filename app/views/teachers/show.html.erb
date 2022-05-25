@@ -1,5 +1,7 @@
 <div text-justify-center>
-    <p> "Image profil du TA" </p>
+    <% if @teacher.photo.attached?  %>
+      <p><%= cl_image_tag @teacher.photo.key, height: 300, width: 400, crop: :fill %> </p>
+    <% end %>
     <h1> <%= @teacher.name %></h1>
     <p> <%= @teacher.location %></p>
     <p> <%= @teacher.language%></p>
