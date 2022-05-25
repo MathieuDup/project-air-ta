@@ -7,18 +7,21 @@
     <% @teachers.each do |teacher| %>
       <div class="col-4">
       <%# need to replace url with cloudinary link for teacher picture on line 6 %>
+
         <div class="card-product">
-          <% if teacher.photo.attached?  %>
-            <img src= <%= cl_image_path(teacher.photo.key) %> />
+          <%=link_to teacher_path(teacher), class: "text-decoration-none" do %>
+            <% if teacher.photo.attached?  %>
+              <img src= <%= cl_image_path(teacher.photo.key) %> />
             <% else %>
-            <img src= "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <% end %>
-          <div class="card-product-infos">
-            <h2><%= teacher.name %></h2>
-            <p>0 appointment</p>
-            <p><%= teacher.location %></p>
-            <p><%= teacher.language %></p>
-            <p><%= teacher.price %></p>
+              <img src= "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= teacher.name %></h2>
+              <p>0 appointment</p>
+              <p><%= teacher.location %></p>
+              <p><%= teacher.language %></p>
+              <p><%= teacher.price %></p>
+          <%end%>
             <%= link_to "Edit", edit_teacher_path(teacher) %>
             <%= link_to "Delete", teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
           </div>
