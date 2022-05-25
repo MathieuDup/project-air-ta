@@ -4,7 +4,9 @@
     <% @teachers.each do |teacher| %>
       <div class="col-4">
       <%# need to replace url with cloudinary link for teacher picture on line 6 %>
+
         <div class="card-product">
+        <%=link_to teacher_path(teacher), class: "text-decoration-none" do %>
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
             <h2><%= teacher.name %></h2>
@@ -17,6 +19,7 @@
           </div>
         </div>
       </div>
+      <%end%>
     <% end %>
   </div>
 </div>
