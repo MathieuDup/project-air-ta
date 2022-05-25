@@ -1,31 +1,34 @@
 <div class="container">
   <div class="row mt-5">
-  <% if @user.photo.attached?  %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
   <%= link_to "Add a new teacher", new_teacher_path %>
-    <% @teachers.each do |teacher| %>
-      <div class="col-4">
-      <%# need to replace url with cloudinary link for teacher picture on line 6 %>
-
-        <div class="card-product">
-          <%=link_to teacher_path(teacher), class: "text-decoration-none" do %>
-            <% if teacher.photo.attached?  %>
-              <img src= <%= cl_image_path(teacher.photo.key) %> />
-            <% else %>
-              <img src= "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%= teacher.name %></h2>
-              <p>0 appointment</p>
-              <p><%= teacher.location %></p>
-              <p><%= teacher.language %></p>
-              <p><%= teacher.price %></p>
-          <%end%>
-            <%= link_to "Edit", edit_teacher_path(teacher) %>
-            <%= link_to "Delete", teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+    <% @user.teachers.each do |teacher| %>
+      <div class="col-lg-4 col-sm-12 mt-4">
+        <div class="card-product d-flex">
+            <div class="card-product-picture">
+              <%=link_to teacher_path(teacher), class: "text-decoration-none" do %>
+              <%= image_tag (teacher.photo.attached? ? cl_image_path(teacher.photo.key) : asset_path("jim.jpg")), class: "rounded-circle border border-info"%>
+              <%end%>
+            </div>
+            <div class="card-product-infos d-flex m-3">
+              <div class="p-3">
+                <h2><%= teacher.name %></h2>
+                <p>0 appointment</p>
+              </div>
+              <div class="p-2">
+                <p><%= teacher.location %></p>
+                <p><%= teacher.language %></p>
+                <p><%= teacher.price.to_i %> €</p>
+              </div>
+              <div class="card-product-buttons ml-auto p-4">
+                <%= link_to edit_teacher_path(teacher) do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                <%end%>
+                <%= link_to teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" do %>
+                  <i class="fa-solid fa-trash"></i>
+                  <% end %>
+              </div>
+            </div>
           </div>
-        </div>
       </div>
     <% end %>
   </div>
