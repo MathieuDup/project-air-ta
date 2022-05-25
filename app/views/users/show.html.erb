@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row mt-5">
+  <% if @user.photo.attached?  %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <%= link_to "Add a new teacher", new_teacher_path %>
     <% @teachers.each do |teacher| %>
       <div class="col-4">
       <%# need to replace url with cloudinary link for teacher picture on line 6 %>
         <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% if teacher.photo.attached?  %>
+            <img src= <%= cl_image_path(teacher.photo.key) %> />
+            <% else %>
+            <img src= "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% end %>
           <div class="card-product-infos">
             <h2><%= teacher.name %></h2>
             <p>0 appointment</p>
