@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-5">
-  <% if @user.photo.attached?  %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <% if current_user.photo.attached?  %>
+    <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
   <%= link_to "Add a new teacher", new_teacher_path %>
     <% @teachers.each do |teacher| %>
@@ -22,8 +22,10 @@
               <p><%= teacher.language %></p>
               <p><%= teacher.price %></p>
           <%end%>
-            <%= link_to "Edit", edit_teacher_path(teacher) %>
-            <%= link_to "Delete", teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+            <% if policy(teacher).edit? %>
+              <%= link_to "Edit", edit_teacher_path(teacher) %>
+              <%= link_to "Delete", teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+            <% end %>
           </div>
         </div>
       </div>

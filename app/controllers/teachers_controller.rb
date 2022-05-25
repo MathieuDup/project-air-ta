@@ -3,7 +3,7 @@ class TeachersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @teachers = Teacher.all
+    @teachers = policy_scope(Teacher).order(created_at: :desc)
   end
 
   def new
@@ -11,8 +11,9 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @user = User.first #TO REMOVE
+    @user = current_user
     @teacher = Teacher.new(teacher_params)
+    authorize @user
     @teacher.user = @user
     if @teacher.save
       redirect_to user_path(@user)
@@ -28,6 +29,8 @@ class TeachersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    authorize @user
     if @teacher.update(teacher_params)
       redirect_to @teacher.user, notice: 'Teacher was successfully updated.'
     else
@@ -36,6 +39,8 @@ class TeachersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    authorize @user
     @teacher.destroy
     redirect_to user_path(@teacher.user), notice: "Teacher was successfully destroyed."
   end
