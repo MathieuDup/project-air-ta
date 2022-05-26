@@ -1,0 +1,88 @@
+.btn-circle {
+  color: white;
+  padding: 2px;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.button-white {
+  box-shadow: 2px solid #FF6363;
+  border: 1px solid #636161;
+  text-decoration: none;
+  text-decoration-color: #F8B400;
+  padding: 10px 15px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+a.button-white {
+  color: #F8B400;
+  background-color: #f6f3f5;
+}
+
+.button-white:hover {
+
+  opacity: 1;
+  text-decoration: none;
+  color: #FF6363;
+  transition-duration: 0.3ms;
+}
+
+.button-green {
+  box-shadow: 2px solid #F8B400;
+  border: 1px solid #636161;
+  text-decoration: none;
+  background-color: #125B50;
+  padding: 10px 15px;
+  text-decoration-color: #F8B400;
+  border-radius: 5px;
+  align-items: center;
+}
+a.button-green {
+  color: #f6f3f5;
+}
+
+.button-green:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #FF6363;
+  transition-duration: 0.3ms;
+}
+
+.button-yellow {
+  box-shadow: 2px solid #125B50;;
+  border: 1px solid #636161;
+  text-decoration: none;
+  background-color: #F8B400;
+  padding: 10px 15px;
+  text-decoration-color:#f6f3f5;
+  border-radius: 5px;
+  align-items: center;
+}
+
+a.button-green {
+  color: #f6f3f5;
+}
+
+.button-yellow:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #125B50;
+}
+
+  .button-pink {
+    box-shadow: 2px solid #F8B400;
+    border: 1px solid #636161;
+    text-decoration: none;
+    background-color: #FF6363;
+    padding: 10px 15px;
+    text-decoration-color:#f6f3f5;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  .button-pink:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #125B50;
+  }

@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_path("banner.jpg")%>);">
+  <div class="container">
+    <h1>Book your TA with <strong>good style </strong><i class="fa-solid fa-thumbs-up"></i></h1>
+    <p>One day, one TA</p>
+    <%= link_to "Search the good one", root_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="cards">
+  <% @teachers.each do |teacher| %>
+    <%= link_to teacher_path(teacher), class: "text-decoration-none" do %>
+      <div class="card-product">
+        <% if teacher.photo.attached?  %>
+          <img src= <%= cl_image_path(teacher.photo.key) %> />
+          <% else %>
+          <img src= "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= teacher.name %></h2>
+          <p><%= teacher.location %></p>
+          <p><%= teacher.language %></p>
+          <p><%= teacher.price.to_i %> €</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
