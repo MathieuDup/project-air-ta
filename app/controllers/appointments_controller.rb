@@ -13,6 +13,30 @@ class AppointmentsController < ApplicationController
     redirect_to user_path(@appointment.user_id)
   end
 
+  def show
+    @appointment = Appointment.find(params[:id])
+    @teacher = Teacher.find(@appointment.teacher_id)
+  end
+
+  def edit
+    @appointment = Appointment.find(params[:id])
+    @teacher = Teacher.find(@appointment.teacher_id)
+  end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+    @appointment.update(appointment_params)
+    redirect_to user_path(@appointment.user_id)
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to user_path(@appointment.user_id)
+  end
+
+  private
+
   def appointment_params
     params.require(:appointment).permit(:date, :location)
   end
