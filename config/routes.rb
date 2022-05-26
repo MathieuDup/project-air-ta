@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :teachers do
     resources :appointments, only: %i[show new create edit update]
   end
+  resources :appointments, only: :destroy
 end
