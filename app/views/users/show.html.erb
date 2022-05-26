@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h1 class="text-center">My profil</h1>
+  <h1 class="text-center">My profile</h1>
   <h2>My teachers</h2>
   <div class="cards">
     <% @teachers.each do |teacher| %>
@@ -20,7 +20,8 @@
                 <p><%= teacher.price.to_i %> €</p>
               </div>
             </div>
-        <% end %>
+          <% end %>
+
           <div class ="card-buttons">
             <%= link_to '', edit_teacher_path(teacher), class:"fa-solid fa-pen-to-square" %>
             <%= link_to '', teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class:"fa-solid fa-trash" %>
@@ -29,30 +30,35 @@
     <% end %>
   </div>
 
-    <h2>My appointments</h2>
+  <h2>My appointments</h2>
 
-      <div class="cards">
-    <% @teachers.each do |teacher| %>
-        <div class="card-product">
-          <%= link_to teacher_path(teacher) do %>
-            <%= image_tag (teacher.photo.attached? ? cl_image_path(teacher.photo.key) : asset_path("jim.jpg")), class: "avatar-bordered"%>
-            <div class="card-product-infos">
-              <div class="card-product-infos-primary">
-                <h2><%= teacher.name %></h2>
-                <h3>0 appoint.</h3>
-              </div>
-              <div class="card-product-infos-secondary">
+
+
+<div class="container">
+  <div class="row mt-5">
+
+    <% @appointments.each do |appointment| %>
+      <div class="col-lg-4 col-sm-12 mt-4">
+        <div class="card-product d-flex">
+            <div class="card-product-picture">
+              <%=link_to teacher_appointment_path(appointment), class: "text-decoration-none" do %>
+              <%end%>
+            </div>
+            <div class="card-product-infos d-flex m-3">
+              <div class="p-2">
+                <p><%= teacher.name %></p>
                 <p><%= teacher.location %></p>
-                <p><%= teacher.language %></p>
-                <p><%= teacher.price.to_i %> €</p>
+                <p><%= appointment.path %></p>
+              </div>
+              <div class="card-product-buttons ml-auto p-4">
+                <%= link_to edit_teacher_appointment_path(appointment) do %>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                <%end%>
+
               </div>
             </div>
-        <% end %>
-          <div class ="card-buttons">
-            <%= link_to '', edit_teacher_path(teacher), class:"fa-solid fa-pen-to-square" %>
-            <%= link_to '', teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class:"fa-solid fa-trash" %>
-          </div>
         </div>
     <% end %>
   </div>
+
 </div>

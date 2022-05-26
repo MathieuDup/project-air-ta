@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: [:show]
 
   def show
     @teachers = @user.teachers
-    @teacher = Teacher.new
+    @appointments = Appointment.where(user_id: current_user.id)
   end
 
   private
