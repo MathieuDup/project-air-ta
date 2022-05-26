@@ -48,13 +48,13 @@
               <div class="p-2">
                 <p><%= teacher.name %></p>
                 <p><%= teacher.location %></p>
-                <p><%= appointment.path %></p>
+                <p><%= teacher.price.to_i %> €</p>
+                <p><%= appointment.date %></p>
               </div>
               <div class="card-product-buttons ml-auto p-4">
                 <%= link_to edit_teacher_appointment_path(appointment) do %>
                     <i class="fa-solid fa-pen-to-square"></i>
                 <%end%>
-
               </div>
             </div>
         </div>
