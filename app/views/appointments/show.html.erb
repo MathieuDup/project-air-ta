@@ -1,0 +1,7 @@
+<h1><%= @appointment.title%></h1>
+<p><%= @appointment.details %></p>
+<%= link_to "validate",appointment_path(@appointment),
+    method: :validate,
+    data: {
+      confirm: "Are you sure?"}
+%>
