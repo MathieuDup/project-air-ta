@@ -19,14 +19,16 @@
           <p><%= teacher.price.to_i %> €</p>
         </div>
       </div>
-      <div class="card-buttons">
-        <%= link_to edit_teacher_path(teacher) do %>
-          <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-trash"></i>
-        <% end %>
-      </div>
+      <% if teacher.user == current_user  %>
+        <div class="card-buttons">
+          <%= link_to edit_teacher_path(teacher) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
