@@ -14,6 +14,9 @@ class TeachersController < ApplicationController
     @user = current_user
     @teacher = Teacher.new(teacher_params)
     @teacher.user = @user
+    languages = params[:teacher][:language_ids]
+    languages.map! { |l| Language.find(l) }
+    @teacher.languages = languages
     if @teacher.save
       redirect_to user_path(@user)
     else
@@ -31,7 +34,6 @@ class TeachersController < ApplicationController
 
   def update
     languages = params[:teacher][:language_ids]
-    languages.shift
     languages.map! { |l| Language.find(l) }
     @teacher.languages = languages
     if @teacher.update(teacher_params)
