@@ -16,7 +16,10 @@
               </div>
               <div class="p-2">
                 <p><%= teacher.location %></p>
-                <p><%= teacher.language %></p>
+                <p><% teacher.languages.each do |language| %>
+                    <%= language.name %>
+                   <% end %>
+                </p>
                 <p><%= teacher.price.to_i %> €</p>
               </div>
               <div class="card-product-buttons ml-auto p-4">
