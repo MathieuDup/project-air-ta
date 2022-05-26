@@ -1,0 +1,29 @@
+<div class="cards">
+  <% @appointments.each do |appointment| %>
+    <div class="card-product">
+      <%= link_to teacher_appointment_path(appointment) do %>
+        <%= image_tag (appointment.teacher.photo.attached? ? cl_image_path(appointment.teacher.photo.key) : asset_path("jim.jpg")), class: "avatar-bordered"%>
+      <% end %>
+      <div class="card-product-infos">
+        <div class="card-product-infos-primary">
+          <h2><%= appointment.teacher.name %></h2>
+          <h3><%= appointment.teacher.price.to_i %> €</h3>
+        </div>
+        <div class="card-product-infos-secondary">
+          <p><%= appointment.teacher.location %></p>
+          <p><%= appointment.date %></p>
+        </div>
+      </div>
+      <% if appointment.teacher.user == current_user  %>
+        <div class="card-buttons">
+          <%= link_to edit_teacher_appointment_path(appointment) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
