@@ -42,17 +42,19 @@
         <div class="card-product d-flex">
             <div class="card-product-picture">
               <%=link_to teacher_appointment_path(appointment), class: "text-decoration-none" do %>
+              Cliquez ici pour voir le profil du professeur
               <%end%>
             </div>
             <div class="card-product-infos d-flex m-3">
               <div class="p-2">
-                <p><%= teacher.name %></p>
-                <p><%= teacher.location %></p>
-                <p><%= teacher.price.to_i %> €</p>
+                <p><%= appointment.teacher.name %></p>
+                <p><%= appointment.teacher.location %></p>
+                <p><%= appointment.teacher.price.to_i %> €</p>
                 <p><%= appointment.date %></p>
               </div>
               <div class="card-product-buttons ml-auto p-4">
                 <%= link_to edit_teacher_appointment_path(appointment) do %>
+                Modifiez le rendez-vous
                     <i class="fa-solid fa-pen-to-square"></i>
                 <%end%>
               </div>

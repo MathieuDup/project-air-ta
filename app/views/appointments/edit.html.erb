@@ -1,5 +1,4 @@
 <h1>Editing appointement</h1>
 
 <%= render 'form_appointment', appointment: @appointment %>
-<%= link_to 'Show', @appointment %> |
-<%= link_to 'Back', user_path(@appointement.user_id) %>
+<%= link_to 'Back', user_path(@appointment.user) %>
