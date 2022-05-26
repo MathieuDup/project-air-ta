@@ -17,19 +17,10 @@
         <%= @languages.each do |language| %>
           <%= language.name %>
         <% end %>
-<<<<<<< HEAD
     </p>
     <p><i class='fa fa-calendar'></i> <%= @teacher.availability&.capitalize %></p>
-=======
-    </p> 
-    <p><i class='fa fa-calendar'></i> <%= @teacher.availability.capitalize %></p>
->>>>>>> 8c5240cec17efe01dde9042fee1b6555a4992c40
     <p><i class='fa fa-cc-visa'></i><%= @teacher.price.to_i%> €</p>
     <%= link_to 'Back to home', root_path, class:"button-white"%>
     <%= link_to 'Book this TA', root_path, class:"button-green"%>
   </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 8c5240cec17efe01dde9042fee1b6555a4992c40
