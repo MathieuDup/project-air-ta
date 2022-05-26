@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: [:show]
 
   def show
-    @teachers = @user.teachers
-    @teacher = Teacher.new
+    @appointments = Appointment.where(user_id: current_user.id)
   end
 
   def create
@@ -11,6 +10,7 @@ class UsersController < ApplicationController
     @user.save
     redirect_to appointments_path(@appointment)
   end
+
   private
 
   def set_user
