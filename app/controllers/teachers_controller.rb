@@ -22,6 +22,7 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @appointment = Appointment.new
     @languages = @teacher.languages
   end
 
