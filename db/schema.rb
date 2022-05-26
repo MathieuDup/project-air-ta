@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_25_083052) do
+ActiveRecord::Schema.define(version: 2022_05_26_095425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,16 +53,30 @@ ActiveRecord::Schema.define(version: 2022_05_25_083052) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.text "language"
     t.text "availability"
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_teachers_on_user_id"
+  end
+
+  create_table "teachers_languages", force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "language_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_teachers_languages_on_language_id"
+    t.index ["teacher_id"], name: "index_teachers_languages_on_teacher_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +97,6 @@ ActiveRecord::Schema.define(version: 2022_05_25_083052) do
   add_foreign_key "appointments", "teachers"
   add_foreign_key "appointments", "users"
   add_foreign_key "teachers", "users"
+  add_foreign_key "teachers_languages", "languages"
+  add_foreign_key "teachers_languages", "teachers"
 end

@@ -19,11 +19,15 @@
             </div>
             <div class="card-product-infos-secondary">
               <p><%= teacher.location %></p>
-              <p><%= teacher.language %></p>
+              <p>
+                  <% teacher.languages.each do |language| %>
+                    <%= language.name %>
+                  <% end %>
+              </p>
               <p><%= teacher.price.to_i %> €</p>
             </div>
           </div>
-       <% end %>
+        <% end %>
         <div class ="card-buttons">
           <%= link_to '', edit_teacher_path(teacher), class:"fa-solid fa-pen-to-square" %>
           <%= link_to '', teacher_path(teacher), method: :delete, data: { confirm: "Are you sure?" }, class:"fa-solid fa-trash" %>
