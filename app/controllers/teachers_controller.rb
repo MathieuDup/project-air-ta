@@ -22,12 +22,17 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @languages = @teacher.languages
   end
 
   def edit
   end
 
   def update
+    languages = params[:teacher][:language_ids]
+    languages.shift
+    languages.map! { |l| Language.find(l) }
+    @teacher.languages = languages
     if @teacher.update(teacher_params)
       redirect_to @teacher.user, notice: 'Teacher was successfully updated.'
     else
@@ -47,6 +52,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:name, :location, :language, :availability, :price, :photo)
+    params.require(:teacher).permit(:name, :location, :languages, :availability, :price, :photo)
   end
 end

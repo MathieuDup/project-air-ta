@@ -4,7 +4,9 @@
     <% end %>
     <h1> <%= @teacher.name %></h1>
     <p> <%= @teacher.location %></p>
-    <p> <%= @teacher.language%></p>
+    <p> <% @languages.each do |language| %>
+        <%= language.name %>
+        <% end %></p>
     <p> <%= @teacher.availability %><p>
     <p> <%= @teacher.price %><p>
     <%= link_to 'Back to home', root_path, class:"btn btn-warning" %>
