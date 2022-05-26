@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @teacher = Teacher.new
   end
 
+  def create
+    @users = Appointment.new(appointment_params)
+    @user.save
+    redirect_to appointments_path(@appointment)
+  end
   private
 
   def set_user
