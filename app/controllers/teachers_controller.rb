@@ -1,12 +1,17 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+
+  def index
+    @teachers = Teacher.all
+  end
 
   def new
     @teacher = Teacher.new
   end
 
   def create
-    @user = User.first #TO REMOVE
+    @user = current_user
     @teacher = Teacher.new(teacher_params)
     @teacher.user = @user
     if @teacher.save
@@ -14,10 +19,6 @@ class TeachersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def index
-    @teachers = Teacher.all
   end
 
   def show
@@ -46,6 +47,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:name, :location, :language, :availability, :price)
+    params.require(:teacher).permit(:name, :location, :language, :availability, :price, :photo)
   end
 end

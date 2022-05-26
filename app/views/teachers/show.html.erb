@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="photo">
    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="img-thumbnail" alt="">
@@ -10,4 +11,17 @@
   <p> <%= @teacher.price.to_i%> €<p>
   <%= link_to 'Back to home', root_path, class:"button-white"%>
   <%= link_to 'Book this TA', root_path, class:"button-green"%>
+=======
+<div text-justify-center>
+    <% if @teacher.photo.attached?  %>
+      <p><%= cl_image_tag @teacher.photo.key, height: 300, width: 400, crop: :fill %> </p>
+    <% end %>
+    <h1> <%= @teacher.name %></h1>
+    <p> <%= @teacher.location %></p>
+    <p> <%= @teacher.language%></p>
+    <p> <%= @teacher.availability %><p>
+    <p> <%= @teacher.price %><p>
+    <%= link_to 'Back to home', root_path, class:"btn btn-warning" %>
+    <%= link_to 'Book this TA', root_path, class:"btn btn-success" %>
+>>>>>>> origin
 </div>
