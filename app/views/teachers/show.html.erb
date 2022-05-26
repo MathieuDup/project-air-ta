@@ -14,7 +14,7 @@
     <h1><%= @teacher.name.capitalize %></h1>
     <p><i class='fas fa-search-location'></i> <%= @teacher.location.capitalize %></p>
     <p><i class='fa fa-language'></i>
-        <%= @languages.each do |language| %>
+        <% @languages.each do |language| %>
           <%= language.name %>
         <% end %>
     </p>
