@@ -1,5 +1,7 @@
-<h1>Editing Teacher</h1>
+<div class="container">
+  <h1>Editing Teacher</h1>
 
-<%= render 'form', teacher: @teacher %>
-<%= link_to 'Show', @teacher %> |
-<%= link_to 'Back', user_path(@teacher.user_id) %>
+  <%= render 'form_teachers', teacher: @teacher %>
+  <%= link_to 'Show', @teacher %> |
+  <%= link_to 'Back', user_path(@teacher.user_id) %>
+</div>

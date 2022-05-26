@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin: 8px 0px;
 }
 
 // Smallest device
@@ -59,16 +60,57 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color : #125B50;
 }
 
+.card-product h3 {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: #FF6363;
+}
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  color: #868687;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+.card-product a {
+  width: 90%;
+  display: flex;
+  text-decoration: none;
+  }
+
+.card-product > a > .card-product-infos {
+  padding: 2px;
+  display: flex;
+  width: 100%;
+}
+
+
+.card-product-infos-primary{
+  width: 45%;
+  padding: 4px;
+  align-items: center;
+}
+
+.card-product-infos-secondary{
+  width: 55%;
+  padding: 4px;
+}
+
+.card-buttons{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  a{
+    color: #125B50;
+  }
 }

@@ -1,16 +1,17 @@
-<%= simple_form_for(@user) do |f| %>
+<%= simple_form_for(@teacher) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :details %>
-    <%= f.input :language %>
-    <%= f.input :confirmation %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.association :languages, as: :check_boxes, scope: Language.all, include_blank: false, input_html: { multiple: true }%>
+    <%= f.input :availability %>
     <%= f.input :price %>
     <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :validate %>
+    <%= f.button :submit %>
   </div>
 <% end %>

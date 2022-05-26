@@ -1,12 +1,26 @@
-<div text-justify-center>
-    <% if @teacher.photo.attached?  %>
-      <p><%= cl_image_tag @teacher.photo.key, height: 300, width: 400, crop: :fill %> </p>
-    <% end %>
-    <h1> <%= @teacher.name %></h1>
-    <p> <%= @teacher.location %></p>
-    <p> <%= @teacher.language%></p>
-    <p> <%= @teacher.availability %><p>
-    <p> <%= @teacher.price %><p>
-    <%= link_to 'Back to home', root_path, class:"btn btn-warning" %>
-    <%= link_to 'Book this TA', new_teacher_appointment_path(@teacher), class:"btn btn-success" %>
+<div class="container">
+  <div class="d-flex">
+    <div class="photo">
+      <%= image_tag (@teacher.photo.attached? ? cl_image_path(@teacher.photo.key) : asset_path("jim.jpg")), class: "img-thumbnail"%>
+    </div>
+    <div class="photo">
+      <%= image_tag("cartebordeaux.jpg", class: "img-thumbnail")%>
+    </div>
+  </div>
+
+
+  <div class="details-show">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <h1><%= @teacher.name.capitalize %></h1>
+    <p><i class='fas fa-search-location'></i> <%= @teacher.location.capitalize %></p>
+    <p><i class='fa fa-language'></i>
+        <%= @languages.each do |language| %>
+          <%= language.name %>
+        <% end %>
+    </p>
+    <p><i class='fa fa-calendar'></i> <%= @teacher.availability.capitalize %></p>
+    <p><i class='fa fa-cc-visa'></i><%= @teacher.price.to_i%> €</p>
+    <%= link_to 'Back to home', root_path, class:"button-white"%>
+    <%= link_to 'Book this TA', root_path, class:"button-green"%>
+  </div>
 </div>
