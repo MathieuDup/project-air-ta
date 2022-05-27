@@ -13,6 +13,10 @@
 @import "pages/index";
 @import "pages/home";
 @import "teachers/show";
+@import "teachers/index";
+
+// MapBox
+@import "mapbox-gl/dist/mapbox-gl";
 
 a {
   text-decoration: none;

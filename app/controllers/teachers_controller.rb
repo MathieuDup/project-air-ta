@@ -4,6 +4,12 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = Teacher.all
+    @markers = @teachers.geocoded.map do |teacher|
+      {
+        lat: teacher.latitude,
+        lng: teacher.longitude
+      }
+    end
   end
 
   def new

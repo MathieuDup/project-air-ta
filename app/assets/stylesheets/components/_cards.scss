@@ -5,6 +5,10 @@
   margin: 8px 0px;
 }
 
+.cards-on-index {
+  padding: 10px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -48,10 +52,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
   position: relative;
+  padding: 4px;
 }
 
 .card-product img {
-  width: 120px;
+  width: 90px;
   height: 100%;
   object-fit: cover;
 }
