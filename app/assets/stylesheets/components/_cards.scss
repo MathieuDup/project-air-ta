@@ -6,12 +6,16 @@
 }
 
 .cards-on-index {
+  grid-template-columns: 1fr 1fr;
   padding: 10px;
 }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
+    grid-template-columns: 1fr;
+  }
+  .cards-on-index {
     grid-template-columns: 1fr;
   }
 }
@@ -21,12 +25,18 @@
   .cards {
     grid-template-columns: 1fr;
   }
+  .cards-on-index {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -35,12 +45,18 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .cards-on-index {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cards-on-index {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
