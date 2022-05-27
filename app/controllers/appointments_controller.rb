@@ -35,6 +35,10 @@ class AppointmentsController < ApplicationController
     redirect_to user_path(@appointment.user_id)
   end
 
+  def account
+    @accounts = Account.where(appointment: false).count
+  end
+
   private
 
   def appointment_params
