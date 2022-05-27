@@ -3,7 +3,17 @@ class TeachersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @teachers = Teacher.all
+    if params[:query].present?
+      sql_query = " \
+        teachers.name @@ :query \
+        OR teachers.location @@ :query \
+        OR languages.name @@ :query \
+      "
+      @teachers = Teacher.joins(:languages).where(sql_query, query: "%#{params[:query]}%")
+                         .uniq
+    else
+      @teachers = Teacher.all
+    end
   end
 
   def new
@@ -48,6 +58,7 @@ class TeachersController < ApplicationController
     redirect_to user_path(@teacher.user), notice: "Teacher was successfully destroyed."
   end
 
+
   private
 
   def set_teacher
@@ -55,6 +66,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:name, :location, :languages, :availability, :price, :photo)
+    params.require(:teacher).permit(:name, :location, :description, :photo, :price, :user_id, :language_ids)
   end
 end
