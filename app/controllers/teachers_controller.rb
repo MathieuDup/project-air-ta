@@ -21,6 +21,7 @@ class TeachersController < ApplicationController
       lng: teacher.longitude,
       info_window: render_to_string(partial: "info_window", locals: { teacher: teacher })
      }
+    end
   end
 
   def new
