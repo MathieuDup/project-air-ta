@@ -7,7 +7,7 @@
     <%= f.input :location,
                 input_html: { data: { geocoder_target: "location" }, class: "d-none" },
                 wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-    <%= f.association :languages, as: :check_boxes, scope: Language.all, include_hidden: false, include_blank: false, input_html: { multiple: true }%>
+    <%= f.association :languages, as: :check_boxes, scope: Language.all, include_hidden: false, include_blank: false, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
     <%= f.input :availability %>
     <%= f.input :price %>
     <%= f.input :photo, as: :file %>

@@ -1,4 +1,13 @@
 class Teacher < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :global_search,
+                  against: %i[name location],
+                  associated_against: {
+                    languages: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
   belongs_to :user
 
   has_one_attached :photo

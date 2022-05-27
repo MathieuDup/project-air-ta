@@ -1,7 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_path("banner.jpg")%>);">
   <div class="container">
     <h1>Book your TA with <strong>good style </strong><i class="fa-solid fa-thumbs-up"></i></h1>
-    <%= link_to "Search the good one", root_path, class: "btn btn-primary" %>
+    <%= form_tag teachers_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a TA"
+      %>
+      <%= submit_tag "Find the good one", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
