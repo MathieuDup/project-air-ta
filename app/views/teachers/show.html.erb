@@ -1,29 +1,40 @@
 <div class="show-container">
-  <div class="d-flex justify-content-center">
-    <div class="photo">
-      <%= image_tag (@teacher.photo.attached? ? cl_image_path(@teacher.photo.key) : asset_path("jim.jpg")), class: "img-thumbnail"%>
-    </div>
-  </div>
+  <div class="row justify-content-between align-items-center">
 
-  <div class="details-show d-flex justify-content-between">
-    <div class="details-show-left">
-      <h1 class="mb-4"><%= @teacher.name.capitalize %></h1>
-      <p><i class='fas fa-search-location'></i> <%= @teacher.location.capitalize %></p>
-      <p><i class='fa fa-language'></i>
-        <% @languages.each do |language| %>
-          <%= language.name %>
+    <div class="col-sm-12 col-md-3 col-lg-4">
+      <div class="d-flex justify-content-center">
+        <div class="photo">
+          <%= image_tag (@teacher.photo.attached? ? cl_image_path(@teacher.photo.key) : asset_path("jim.jpg")), class: "img-thumbnail rounded-circle"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-3 col-lg-4">
+      <div class="details-show d-flex justify-content-between">
+        <div class="details-show-left">
+          <h1 class="mb-4"><%= @teacher.name.capitalize %> <i class='fa fa-star' style='color: black'> 5</i></h1>
+          <p><i class='fas fa-search-location'></i> <%= @teacher.location.capitalize %></p>
+          <p><i class='fa fa-language'></i>
+            <% @languages.each do |language| %>
+              <%= language.name %>
+            <% end %>
+          <p><i class="fa-solid fa-credit-card"></i> <%= @teacher.price.to_i %>€</p>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-3 col-lg-4 shadow-lg p-3 mb-5 bg-body rounded">
+      <div class="details-show-right">
+        <h2 class="mb-3">Book <%= @teacher.name.capitalize %> with <i class="fa-solid fa-heart"></i></h2>
+        <%= simple_form_for([@teacher, @appointment]) do |f| %>
+          <%= f.input :date, as: :date, label: false %>
+          <%= f.button :submit, "Book a TA", class: "btn-green mt-2" %>
         <% end %>
-      </p>
-      <%= link_to 'Back to home', root_path, class:"btn-white mt-4 d-inline-block" %>
+      </div>
     </div>
-    <div class="details-show-right">
-      <h1><i class="fa-solid fa-credit-card"></i> <%= @teacher.price.to_i %>€</h1>
-      <p><i class='fa fa-star' style='color: black'> 4.99</i></p>
-      <%= simple_form_for([@teacher, @appointment]) do |f| %>
-        <%= f.input :date, as: :date, label: false %>
-        <%= f.button :submit, "Book a TA", class: "btn-green mt-2" %>
-      <% end %>
-    </div>
-
   </div>
+
+  <%= link_to 'Back to home', root_path, class:"btn-white mt-4 d-inline-block" %>
+
 </div>
