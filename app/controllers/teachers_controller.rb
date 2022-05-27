@@ -15,13 +15,13 @@ class TeachersController < ApplicationController
       @teachers = Teacher.all
     end
 
-    @markers = @teachers.geocoded.map do |teacher|
+    @markers = @teachers.map do |teacher|
      {
       lat: teacher.latitude,
       lng: teacher.longitude,
       info_window: render_to_string(partial: "info_window", locals: { teacher: teacher })
      }
-    end
+    end if @teachers.length != 0
   end
 
   def new
