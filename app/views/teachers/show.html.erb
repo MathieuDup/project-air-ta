@@ -29,13 +29,12 @@
         <h2 class="mb-3">Book <%= @teacher.name.capitalize %> with <i class="fa-solid fa-heart"></i></h2>
         <%= simple_form_for([@teacher, @appointment]) do |f| %>
           <%= f.input :date, as: :date, label: false %>
-          <%= f.button :submit, "Book a TA", class: "button-green mt-2" %>
+          <%= f.button :submit, "Book a TA", class: "btn-green mt-2" %>
         <% end %>
       </div>
     </div>
-
   </div>
 
-  <%= link_to 'Back to home', root_path, class:"button-white mt-4 d-inline-block" %>
+  <%= link_to 'Back to home', root_path, class:"btn-white mt-4 d-inline-block" %>
 
 </div>
