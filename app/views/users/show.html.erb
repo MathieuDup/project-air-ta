@@ -3,9 +3,9 @@
     <%= link_to 'Edit my profile', edit_user_registration_path, class:"btn-white mb-3 d-inline-block" %>
     <%= link_to 'Add a teacher', new_teacher_path, class:"btn-green mb-3 d-inline-block" %>
   </div>
-  
+
   <h1 class="text-center">My profile</h1>
-  
+
   <h2>My teachers</h2>
   <div class="cards">
     <%= render "/teachers/cards_teachers" %>
@@ -15,5 +15,5 @@
   <div class="cards">
     <%= render "/appointments/cards_appointments" %>
   </div>
-  
+
 </div>
