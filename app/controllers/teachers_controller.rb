@@ -14,6 +14,13 @@ class TeachersController < ApplicationController
     else
       @teachers = Teacher.all
     end
+
+    @markers = @teachers.geocoded.map do |teacher|
+     {
+      lat: teacher.latitude,
+      lng: teacher.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { teacher: teacher })
+     }
   end
 
   def new
