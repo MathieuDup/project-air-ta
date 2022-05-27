@@ -10,10 +10,21 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/tags";
 @import "pages/index";
 @import "pages/home";
 @import "teachers/show";
+@import "teachers/index";
+
+// MapBox
+@import "mapbox-gl/dist/mapbox-gl";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
 
 a {
   text-decoration: none;
+}
+
+body{
+  background-color: #FBF8EC;
 }

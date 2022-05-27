@@ -1,0 +1,12 @@
+  <%= link_to teacher_path(teacher) do %>
+    <%= image_tag (teacher.photo.attached? ? cl_image_path(teacher.photo.key) : asset_path("jim.jpg")), class: "avatar-bordered"%>
+  <% end %>
+  <h2><%= teacher.name %></h2>
+  <h3><%= teacher.appointments.length %> appoints.</h3>
+  <p><%= teacher.location %></p>
+  <p>
+    <% teacher.languages.each do |language| %>
+      <%= language.name %>
+    <% end %>
+  </p>
+  <p><%= teacher.price.to_i %> €</p>
