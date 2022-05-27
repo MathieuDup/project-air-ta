@@ -45,7 +45,7 @@
   color: white;
 }
 
-.button-white {
+.btn-white {
   box-shadow: 2px solid #FF6363;
   border: 1px solid #636161;
   text-decoration: none;
@@ -56,12 +56,12 @@
 
 }
 
-a.button-white {
+a.btn-white {
   color: #F8B400;
   background-color: #f6f3f5;
 }
 
-.button-white:hover {
+.btn-white:hover {
 
   opacity: 1;
   text-decoration: none;
@@ -69,7 +69,7 @@ a.button-white {
   transition-duration: 0.3ms;
 }
 
-.button-green {
+.btn-green {
   color: white;
   box-shadow: 2px solid #F8B400;
   border: 1px solid #636161;
@@ -83,7 +83,7 @@ a.button-white {
   margin-bottom: 2px;
 }
 
-.button-green:hover {
+.btn-green:hover {
   opacity: 1;
   text-decoration: none;
   color: #FF6363;

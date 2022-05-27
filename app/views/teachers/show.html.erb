@@ -14,14 +14,14 @@
           <%= language.name %>
         <% end %>
       </p>
-      <%= link_to 'Back to home', root_path, class:"button-white mt-4 d-inline-block" %>
+      <%= link_to 'Back to home', root_path, class:"btn-white mt-4 d-inline-block" %>
     </div>
     <div class="details-show-right">
       <h1><i class="fa-solid fa-credit-card"></i> <%= @teacher.price.to_i %>€</h1>
       <p><i class='fa fa-star' style='color: black'> 4.99</i></p>
       <%= simple_form_for([@teacher, @appointment]) do |f| %>
         <%= f.input :date, as: :date, label: false %>
-        <%= f.button :submit, "Book a TA", class: "button-green mt-2" %>
+        <%= f.button :submit, "Book a TA", class: "btn-green mt-2" %>
       <% end %>
     </div>
 
